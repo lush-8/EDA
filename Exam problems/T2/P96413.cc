@@ -6,6 +6,21 @@ using namespace std;
 
 const int INDEF = -1 ;
 
+void Read(vector<vector<int>>& autors, vector<unordered_set<int>>& treballs) {
+
+    for (int i = 0 ; i < treballs.size() ; ++i) { 
+        int n_coautors ;
+        cin >> n_coautors ; 
+
+        for (int j = 0 ; j < n_coautors ; ++j) {
+            int coautor ;
+            cin >> coautor ;
+            autors[coautor].push_back(i) ; 
+            treballs[i].insert(coautor) ; 
+        }
+    }
+}
+
 void Write(const vector<int>& dist) {
 
     for (int i = 0 ; i < dist.size() ; ++i) {
@@ -16,21 +31,6 @@ void Write(const vector<int>& dist) {
         cout << endl ;
     }
     cout << string(10, '-') << endl ;
-}
-
-void Read(vector<vector<int>>& autors, vector<unordered_set<int>>& treballs) {
-
-    for (int i = 0 ; i < treballs.size() ; ++i) { 
-        int n_coautors ;
-        cin >> n_coautors ; 
-
-        for (int j = 0 ; j < n_coautors ; ++j) {
-            int coautor ;
-            cin >> coautor ;
-            autors[coautor].push_back(i) ; // per cada autor ens guardem on té treballs
-            treballs[i].insert(coautor) ; // per cada treball guardem el conjunt de coautors
-        }
-    }
 }
 
 int main () {
@@ -44,7 +44,7 @@ int main () {
         vector<int> dist(n, INDEF) ;
         queue<int> q ; 
         dist[0] = 0 ; 
-        q.push(0) ; // Erdös
+        q.push(0) ; 
 
         while (not q.empty()) {
             int autor = q.front() ;
