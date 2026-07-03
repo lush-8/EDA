@@ -2,7 +2,7 @@
 
 Tots els exercicis d'**EDA Curs 2024/2025 Q1** del **JUTGE** resolts:
 
-- **(135/135) ✅**
+- **(137/137) ✅**
 
 ---
 
